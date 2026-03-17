@@ -31,5 +31,5 @@ def create_color_barcode(colors, bar_width, height, width, fname):
 
     del draw
 
-    bc = bc.resize((width, height), Image.ANTIALIAS)
+    bc = bc.resize((width, height), Image.Resampling.NEAREST)
     bc.save(fname, 'PNG')
