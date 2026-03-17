@@ -31,5 +31,5 @@ def create_color_barcode(colors, bar_width, height, width, fname):
 
     del draw
 
-    bc = bc.resize((width, height), Image.Resampling.NEAREST)
+    bc = bc.resize((width, height), Image.Resampling.BICUBIC)
     bc.save(fname, 'PNG')
