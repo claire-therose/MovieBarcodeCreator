@@ -25,7 +25,7 @@ def create_thread_barcode(bar_width, height, fname, images, thread_id, q):
     posx = 0
     for img in images:
         temp = Image.open(img)
-        temp = temp.resize((bar_width, height), Image.ANTIALIAS)
+        temp = temp.resize((bar_width, height), Image.Resampling.NEAREST)
         t_bc.paste(temp, (posx, 0))
 
         posx += bar_width
@@ -44,7 +44,7 @@ def create_final_image_barcode(pieces_width, final_width, height, fname, images)
         posx += img[1]
 
     os.chdir('..')
-    bc = bc.resize((final_width, height), Image.ANTIALIAS)
+    bc = bc.resize((final_width, height), Image.Resampling.NEAREST)
     bc.save(fname, 'PNG')
 
 
